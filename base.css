@@ -1,0 +1,36 @@
+ul,
+body {
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 100;
+    letter-spacing: .05em;
+    padding: 0;
+    margin: 0;
+}
+
+.swipeable-list {
+    margin: 0;
+    padding: 0;
+    background: #ededed;
+    list-style: none;
+}
+
+.swipeable-container li {
+    position: relative;
+    background: #fff;
+    display: block;
+    z-index: 2;
+    padding: 2rem;
+    border-bottom: 1px solid #ededed;
+}
+
+.swipeable-container .sub-menu {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.sub-menu li {
+    font-weight: bolder;
+    background: #ededed;
+}

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple swipeable list for touch devices (right to left)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="base.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="swipeable-container">
+
+    <ul class="swipeable-list">
+        <li>Menu item 1</li>
+        <li>Menu item 2</li>
+        <li>Menu item 3</li>
+        <li>Menu item 4</li>
+        <li>Menu item 5</li>
+    </ul>
+
+    <ul class="sub-menu">
+        <li>&#9998</li>
+        <li>&#9998</li>
+        <li>&#9998</li>
+        <li>&#9998</li>
+        <li>&#9998</li>
+    </ul>
+</div>
+
+<script src="swipeable-menu.js"></script>
+<script>
+    var swiper = new SwipeableList({
+        menuIsOpen: false,
+        element: '.swipeable-list',
+        threshold: 50
+    });
+
+</script>
+</body>
+</html>
