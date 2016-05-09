@@ -9,9 +9,9 @@
     w.SwipeableList = function SwipeableList(state) {
         this.threshold = state.threshold;
         this.state = state;
+        this.menuIsOpen = false;
         this.DOMElement = d.querySelector(state.element);
         this.dragDropHandler = this.dragDropHandler.bind(this);
-
         this.drop = this.drop.bind(this);
         this.closeMenu = this.closeMenu.bind(this);
         this.openMenu = this.openMenu.bind(this);
@@ -22,7 +22,7 @@
 
     SwipeableList.prototype = {
 
-        bindEvents: function() {
+        bindEvents: function () {
             this.DOMElement.addEventListener('touchstart', this.handleTouch);
             this.DOMElement.addEventListener('touchmove', this.handleTouch);
             this.DOMElement.addEventListener('touchend', this.handleTouch);
@@ -59,7 +59,6 @@
 
         dragDropHandler: function (e) {
             e.stopImmediatePropagation();
-            e.preventDefault();
             var el = e.currentTarget;
             this.state.containerSize = el.clientWidth;
             this.state.item = e.srcElement;
@@ -78,6 +77,7 @@
             this.state.draggedEl = this.state.startTouchPosition - this.state.touchPositionX;
             this.state.item.style["-webkit-transform"] = 'translateX(-' + this.state.draggedEl + 'px)';
             this.state.item.style["-webkit-transition"] = 'none';
+            e.preventDefault();
         },
 
         drop: function () {
@@ -95,10 +95,11 @@
         },
 
         closeMenu: function () {
-            this.bindEvents();
             this.state.menuIsOpen = false;
             this.state.item.style["-webkit-transform"] = 'translateX(' + 0 + ')';
             this.state.item.style["-webkit-transition"] = '-webkit-transform .5s';
+            this.DOMElement.removeEventListener('touchend', this.closeMenu);
+            this.bindEvents();
         }
     };
 

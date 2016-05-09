@@ -31,6 +31,7 @@ body {
 }
 
 .sub-menu li {
+    border-color: transparent;
+    background: transparent;
     font-weight: bolder;
-    background: #ededed;
 }
