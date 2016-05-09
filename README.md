@@ -1,5 +1,7 @@
 # Reveal menu UI   
 
+` npm start `
+
 A performant swipeable list slide menu reveal that works on any framework just like apple mail or Gmail
 
 +1 for simplicity
@@ -9,4 +11,5 @@ The key is that is that performance is gained because most task are delegated to
 
 ## Roadmap
 - Swipe in any direction
-- Standard submenu design
+
+# CSS is included as well, but I recomment styling this in any which way possible! :)))))
