@@ -1,6 +1,6 @@
 {
   "name": "reveal-menu",
-  "version": "1.0.1",
+  "version": "1.2.0",
   "description": "A performant swipeable list slide menu reveal that works on any framework just like apple mail or Gmail",
   "main": "swipeable-menu.js",
   "scripts": {
@@ -26,6 +26,7 @@
   "homepage": "https://github.com/code0wl/swipeable-menu#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
     "gulp-uglify": "^1.5.3"
   }
 }

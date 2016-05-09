@@ -48,7 +48,9 @@
 
                 default:
                     if (this.state.startTouchPosition - this.state.touchPositionX >= this.threshold) {
-                        this.drag(e);
+                        if (!this.state.isDragging) {
+                            this.drag(e);
+                        }
                     }
                     break;
             }
