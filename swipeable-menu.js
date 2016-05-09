@@ -48,7 +48,7 @@
 
                 default:
                     if (this.state.startTouchPosition - this.state.touchPositionX >= this.threshold) {
-                        if (!this.state.isDragging) {
+                        if (!this.menuIsOpen) {
                             this.drag(e);
                         }
                     }
