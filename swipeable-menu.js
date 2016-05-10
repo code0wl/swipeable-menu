@@ -21,7 +21,7 @@
     };
 
     SwipeableList.prototype = {
-
+        
         bindEvents: function () {
             this.DOMElement.addEventListener('touchstart', this.handleTouch);
             this.DOMElement.addEventListener('touchmove', this.handleTouch);
