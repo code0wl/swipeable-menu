@@ -83,7 +83,6 @@
         },
 
         drop: function () {
-            console.log('dropped');
             this.state.isDragging = false;
             if (!this.state.menuIsOpen) {
                 if (this.state.draggedEl >= this.threshold * 2) {
