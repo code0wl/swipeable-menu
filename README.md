@@ -15,13 +15,13 @@ npm start
 Check the HTML and CSS and it will all become clear to you. Basically they are two menus in the same div. One is ontop and the other is at the bottom.
 (important!) Keep in mind that it is only listening to touch events, so mouse events will not work. This is by design.
  
- Include the script and create a new instance by
-  ```
-  var swiper = new SwipeableList({
-      element: '.swipeable-list', // Element on page to select
-      threshold: 50 // the amount of threshold the menu needs to open. The lower the number the easier the menu will open
-  });
- ```
+Include the script and create a new instance by
+```
+var swiper = new SwipeableList({
+  element: '.swipeable-list', // Element on page to select
+  threshold: 50 // the amount of threshold the menu needs to open. The lower the number the easier the menu will open
+});
+```
 
 ## Contributing
 1. Fork it!
