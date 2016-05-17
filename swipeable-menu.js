@@ -11,8 +11,6 @@
         this.threshold = state.threshold;
         this.menuIsOpen = false;
         this.DOMElement = d.querySelector(state.element);
-        this.dragDropHandler = this.dragDropHandler.bind(this);
-        this.drop = this.drop.bind(this);
         this.closeMenu = this.closeMenu.bind(this);
         this.openMenu = this.openMenu.bind(this);
         this.handleTouch = this.handleTouch.bind(this);
