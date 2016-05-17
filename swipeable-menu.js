@@ -2,14 +2,10 @@
 
     'use strict';
 
-    /**
-     * @param {object} state
-     * @constructor SwipeableList
-     */
     w.SwipeableList = function SwipeableList(state) {
         this.state = state;
         this.threshold = state.threshold;
-        this.menuIsOpen = false;
+        this.menuIsOpen = 0;
         this.DOMElement = d.querySelector(state.element);
         this.closeMenu = this.closeMenu.bind(this);
         this.openMenu = this.openMenu.bind(this);
@@ -57,7 +53,7 @@
         },
 
         openMenu: function () {
-            this.state.menuIsOpen = true;
+            this.state.menuIsOpen = 1;
             this.state.item.style['-webkit-transform'] = 'translateX(' + -25 + '%)';
             this.state.item.style['-webkit-transition'] = '-webkit-transform .5s';
             this.handler(this.DOMElement, 'removeEventListener', ['touchstart', 'touchmove', 'touchend'], this.handleTouch);
@@ -65,7 +61,7 @@
         },
 
         drag: function (e) {
-            this.state.isDragging = true;
+            this.state.isDragging = 1;
             this.state.draggedEl = this.state.startTouchPosition - this.state.touchPositionX;
             this.state.item.style["-webkit-transform"] = 'translateX(-' + this.state.draggedEl + 'px)';
             this.state.item.style["-webkit-transition"] = 'none';
@@ -73,7 +69,7 @@
         },
 
         drop: function () {
-            this.state.isDragging = false;
+            this.state.isDragging = 0;
             if (!this.state.menuIsOpen) {
                 if (this.state.draggedEl >= this.threshold * 2) {
                     this.openMenu();
@@ -86,7 +82,7 @@
         },
 
         closeMenu: function () {
-            this.state.menuIsOpen = false;
+            this.state.menuIsOpen = 0;
             this.state.item.style["-webkit-transform"] = 'translateX(' + 0 + ')';
             this.state.item.style["-webkit-transition"] = '-webkit-transform .5s';
             this.DOMElement.removeEventListener('touchend', this.closeMenu);
