@@ -7,8 +7,8 @@
      * @constructor SwipeableList
      */
     w.SwipeableList = function SwipeableList(state) {
-        this.threshold = state.threshold;
         this.state = state;
+        this.threshold = state.threshold;
         this.menuIsOpen = false;
         this.DOMElement = d.querySelector(state.element);
         this.dragDropHandler = this.dragDropHandler.bind(this);
@@ -16,22 +16,14 @@
         this.closeMenu = this.closeMenu.bind(this);
         this.openMenu = this.openMenu.bind(this);
         this.handleTouch = this.handleTouch.bind(this);
-        this.unbindEvents = this.unbindEvents.bind(this);
-        this.bindEvents();
+        this.handler(this.DOMElement, 'addEventListener', ['touchstart', 'touchmove', 'touchend'], this.handleTouch);
     };
 
     SwipeableList.prototype = {
-        
-        bindEvents: function () {
-            this.DOMElement.addEventListener('touchstart', this.handleTouch);
-            this.DOMElement.addEventListener('touchmove', this.handleTouch);
-            this.DOMElement.addEventListener('touchend', this.handleTouch);
-        },
-
-        unbindEvents: function () {
-            this.DOMElement.removeEventListener('touchstart', this.handleTouch);
-            this.DOMElement.removeEventListener('touchmove', this.handleTouch);
-            this.DOMElement.removeEventListener('touchend', this.handleTouch);
+        handler: function (element, method, events, fn) {
+            events.forEach(function (event) {
+                element[method](event, fn);
+            });
         },
 
         handleTouch: function (e) {
@@ -70,7 +62,7 @@
             this.state.menuIsOpen = true;
             this.state.item.style['-webkit-transform'] = 'translateX(' + -25 + '%)';
             this.state.item.style['-webkit-transition'] = '-webkit-transform .5s';
-            this.unbindEvents();
+            this.handler(this.DOMElement, 'removeEventListener', ['touchstart', 'touchmove', 'touchend'], this.handleTouch);
             this.DOMElement.addEventListener('touchend', this.closeMenu);
         },
 
@@ -100,7 +92,7 @@
             this.state.item.style["-webkit-transform"] = 'translateX(' + 0 + ')';
             this.state.item.style["-webkit-transition"] = '-webkit-transform .5s';
             this.DOMElement.removeEventListener('touchend', this.closeMenu);
-            this.bindEvents();
+            this.handler(this.DOMElement, 'addEventListener', ['touchstart', 'touchmove', 'touchend'], this.handleTouch);
         }
     };
 
