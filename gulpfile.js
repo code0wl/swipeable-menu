@@ -1,11 +1,11 @@
 const
     gulp = require('gulp'),
     uglify = require('gulp-uglify'),
-    concat = require('gulp-concat');
+    gzip = require('gulp-gzip');
 
 gulp.task('default', function() {
     return gulp.src('swipeable-menu.js')
         .pipe(uglify())
-        .pipe(concat('swipeable-menu.js'))
+        .pipe(gzip())
         .pipe(gulp.dest('dist'));
 });
