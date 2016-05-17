@@ -54,8 +54,8 @@
 
         openMenu: function () {
             this.state.menuIsOpen = 1;
-            this.state.item.style['-webkit-transform'] = 'translateX(' + -25 + '%)';
-            this.state.item.style['-webkit-transition'] = '-webkit-transform .5s';
+            this.state.item.style['transform'] = 'translateX(' + -25 + '%)';
+            this.state.item.style['transition'] = 'transform .5s';
             this.handler(this.DOMElement, 'removeEventListener', ['touchstart', 'touchmove', 'touchend'], this.handleTouch);
             this.DOMElement.addEventListener('touchend', this.closeMenu);
         },
@@ -63,8 +63,8 @@
         drag: function (e) {
             this.state.isDragging = 1;
             this.state.draggedEl = this.state.startTouchPosition - this.state.touchPositionX;
-            this.state.item.style["-webkit-transform"] = 'translateX(-' + this.state.draggedEl + 'px)';
-            this.state.item.style["-webkit-transition"] = 'none';
+            this.state.item.style["transform"] = 'translateX(-' + this.state.draggedEl + 'px)';
+            this.state.item.style["transition"] = 'none';
             e.preventDefault();
         },
 
@@ -83,8 +83,8 @@
 
         closeMenu: function () {
             this.state.menuIsOpen = 0;
-            this.state.item.style["-webkit-transform"] = 'translateX(' + 0 + ')';
-            this.state.item.style["-webkit-transition"] = '-webkit-transform .5s';
+            this.state.item.style["transform"] = 'translateX(' + 0 + ')';
+            this.state.item.style["transition"] = 'transform .5s';
             this.DOMElement.removeEventListener('touchend', this.closeMenu);
             this.handler(this.DOMElement, 'addEventListener', ['touchstart', 'touchmove', 'touchend'], this.handleTouch);
         }
