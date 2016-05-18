@@ -5,7 +5,6 @@
     w.SwipeableList = function SwipeableList(state) {
         this.state = state;
         this.threshold = state.threshold;
-        this.menuIsOpen = 0;
         this.DOMElement = d.querySelector(state.element);
         this.closeMenu = this.closeMenu.bind(this);
         this.openMenu = this.openMenu.bind(this);
