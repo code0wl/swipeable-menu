@@ -17,8 +17,10 @@ Check the HTML and CSS and it will all become clear to you. Basically they are t
 Include the script and create a new instance by
 ```
 var swiper = new SwipeableList({
-  element: '.swipeable-list', // Element on page to select
-  threshold: 50 // the amount of threshold the menu needs to open. The lower the number the easier the menu will open
+    element: '.swipeable-list',
+    threshold: 50, // force it takes to open the menu
+    speed: .5, // animation speed in seconds
+    size: 25 // in percentages
 });
 ```
 

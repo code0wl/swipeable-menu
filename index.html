@@ -31,9 +31,10 @@
 <script>
     var swiper = new SwipeableList({
         element: '.swipeable-list',
-        threshold: 50
+        threshold: 50, // force it takes to open the menu
+        speed: .5, // animation speed in seconds
+        size: 25 // in percentages
     });
-
 </script>
 </body>
 </html>

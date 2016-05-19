@@ -5,10 +5,15 @@
     w.SwipeableList = function SwipeableList(state) {
         this.state = state;
         this.threshold = state.threshold;
+        this.size = state.size;
+        this.speed = state.speed;
         this.DOMElement = d.querySelector(state.element);
+
+        this.animate = this.animate.bind(this);
         this.closeMenu = this.closeMenu.bind(this);
         this.openMenu = this.openMenu.bind(this);
         this.handleTouch = this.handleTouch.bind(this);
+
         this.handler(this.DOMElement, 'addEventListener', ['touchstart', 'touchmove', 'touchend'], this.handleTouch);
     };
 
@@ -17,6 +22,11 @@
             events.forEach(function (event) {
                 element[method](event, fn);
             });
+        },
+
+        animate: function (amount, speed, type) {
+          this.state.item.style['transform'] = 'translate3d(' + -(amount) + type + ', 0, 0)';
+          this.state.item.style['transition'] = 'transform ' + speed + 's';
         },
 
         handleTouch: function (e) {
@@ -53,8 +63,7 @@
 
         openMenu: function () {
             this.state.menuIsOpen = 1;
-            this.state.item.style['transform'] = 'translateX(' + -25 + '%)';
-            this.state.item.style['transition'] = 'transform .5s';
+            this.animate(this.state.size, this.state.speed, '%');
             this.handler(this.DOMElement, 'removeEventListener', ['touchstart', 'touchmove', 'touchend'], this.handleTouch);
             this.DOMElement.addEventListener('touchend', this.closeMenu);
         },
@@ -62,8 +71,7 @@
         drag: function (e) {
             this.state.isDragging = 1;
             this.state.draggedEl = this.state.startTouchPosition - this.state.touchPositionX;
-            this.state.item.style["transform"] = 'translateX(-' + this.state.draggedEl + 'px)';
-            this.state.item.style["transition"] = 'none';
+            this.animate(this.state.draggedEl, 0, 'px');
             e.preventDefault();
         },
 
@@ -82,9 +90,7 @@
 
         closeMenu: function () {
             this.state.menuIsOpen = 0;
-            this.state.item.style["transform"] = 'translateX(' + 0 + ')';
-            this.state.item.style["transition"] = 'transform .5s';
-            this.DOMElement.removeEventListener('touchend', this.closeMenu);
+            this.animate(0, this.state.speed, '%');
             this.handler(this.DOMElement, 'addEventListener', ['touchstart', 'touchmove', 'touchend'], this.handleTouch);
         }
     };
