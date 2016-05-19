@@ -7,14 +7,13 @@ The key is that is that performance is gained because most task are delegated to
 ## Installation
 <strong>For a demo, after starting the project with npm start. Just open the index.html and debug in mobile view to get touch events.</strong>
 ```
-npm start 
+npm start
 ```
-[Demo](http://codepen.io/Ositoozy/pen/GZLbVo?editors=1010)
 
 ## Usage
 Check the HTML and CSS and it will all become clear to you. Basically they are two menus in the same div. One is ontop and the other is at the bottom.
 (important!) Keep in mind that it is only listening to touch events, so mouse events will not work. This is by design.
- 
+
 Include the script and create a new instance by
 ```
 var swiper = new SwipeableList({
