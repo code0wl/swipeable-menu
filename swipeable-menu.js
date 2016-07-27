@@ -49,9 +49,7 @@
                     }
                     break;
             }
-
             this.dragDropHandler(e);
-
         },
 
         dragDropHandler: function (e) {
