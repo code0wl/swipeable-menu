@@ -1,6 +1,6 @@
 'use strict';
 
-window.SwipeableList = function SwipeableList(state) {
+var SwipeableList = function SwipeableList(state) {
     this.state = state;
     this.threshold = state.threshold;
     this.size = state.size;
