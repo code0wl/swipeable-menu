@@ -1,6 +1,5 @@
 # Reveal menu UI
-A performant swipeable list slide menu reveal that works on any framework just like apple mail or Gmail. +1 for simplicity.
-The key is that is that performance is gained because most task are delegated to css and the composite layer at it's most transition calculations are made to work on the composite layer
+A performant swipeable list slide menu reveal that works on any framework just like apple mail or Gmail. The focus is simplicity.
 
 <p> Try the demo on your mobile device <a href="http://www.codeowl.tech/swipeable-menu/"> here </a></p>
 
